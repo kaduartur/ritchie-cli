@@ -169,7 +169,7 @@ function createInstaller() {
         [[ $answer == "n" || $answer == "N" || $answer == "" ]] && log_info "Skiped signing process." && FLAG=false && break
         echo "Please answer with 'y' or 'n'"
     done
-    [[ $FLAG == "true" ]] && signProduct "${PRODUCT}"-macos-installer-x64-"${VERSION}".pkg
+    [[ $FLAG == "true" ]] && signProduct "${PRODUCT}"-macos-installer-x64.pkg
     log_info "Application installer generation steps finished."
 }
 

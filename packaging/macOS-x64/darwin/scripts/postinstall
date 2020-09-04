@@ -16,15 +16,9 @@ chmod -R 755 .
 
 #Add application shortcut to /usr/local/bin
 rm -f /usr/local/bin/${APPLICATION_FILE_PATH}
-rm -rf ~/.rit
 ln -s ${PRODUCT_HOME}/${APPLICATION_FILE_PATH} /usr/local/bin/${APPLICATION_FILE_PATH}
 
 idempotent_config() {
-  if [ -d "${HOME}/.rit" ]; then
-	  echo "~/.rit directory already exists, moving on"
-  else
-	  mkdir "${HOME}/.rit"
-  fi
   if [ -n "$SHELL_TYPE" ]; then
 
     if [ -f "${HOME}/.${SHELL_TYPE}rc" ]; then
@@ -55,7 +49,6 @@ idempotent_config() {
       echo "Installed Ritchie without autocomplete"
       return
     fi
-
 
       echo "Installed Ritchie with autocomplete"
   fi
